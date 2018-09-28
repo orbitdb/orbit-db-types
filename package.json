@@ -5,7 +5,7 @@
   "types": "index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lukas2005/-types-orbit-db.git"
+    "url": "git+https://github.com/lukas2005/orbit-db-types.git"
   },
   "keywords": [
     "@types",
@@ -15,9 +15,9 @@
   "author": "lukas2005",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/lukas2005/-types-orbit-db/issues"
+    "url": "https://github.com/lukas2005/orbit-db-types/issues"
   },
-  "homepage": "https://github.com/lukas2005/-types-orbit-db#readme",
+  "homepage": "https://github.com/lukas2005/orbit-db-types#readme",
   "dependencies": {
     "@types/events": "^1.2.0",
     "@types/ipfs": "git+https://github.com/zabirauf/ipfs-types.git",
