@@ -19,6 +19,6 @@ declare module "orbit-db-store" {
         close(): Promise<void>;
         drop(): Promise<void>;
 
-        private _addOperation(data: any);
+        protected _addOperation(data: any);
     }
 }
