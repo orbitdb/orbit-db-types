@@ -9,6 +9,10 @@ declare module 'orbit-db' {
 
     export class OrbitDB {
 
+        stores: any;
+        directory: string;
+        keystore: any;
+
         constructor(ipfs: IPFS, directory?: "./orbitdb", options?: {});
 
         create(name: string, type: string, options?: {
