@@ -2,7 +2,7 @@
   "name": "@types/orbit-db",
   "version": "1.0.0",
   "description": "Unofficial typings for orbit-db",
-  "types": "OrbitDB.d.ts",
+  "types": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lukas2005/-types-orbit-db.git"
