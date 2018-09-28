@@ -3,7 +3,7 @@ declare module "orbit-db-store" {
     import { EventEmitter } from 'events';
 
     export class Store {
-        
+
         address: { root: string, path: string };
         key: any;
         type: string;
@@ -19,5 +19,6 @@ declare module "orbit-db-store" {
         close(): Promise<void>;
         drop(): Promise<void>;
 
+        private _addOperation(data: any);
     }
 }
