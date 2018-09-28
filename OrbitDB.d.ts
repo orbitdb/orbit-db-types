@@ -13,7 +13,10 @@ declare module 'orbit-db' {
         directory: string;
         keystore: any;
 
-        constructor(ipfs: IPFS, directory?: "./orbitdb", options?: {});
+        constructor(ipfs: IPFS, directory?: string, options?: {
+            peerId?: string,
+            keystore?: any
+        });
 
         create(name: string, type: string, options?: {
             directory?: string,
