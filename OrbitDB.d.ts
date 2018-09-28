@@ -6,12 +6,14 @@ declare module 'orbit-db' {
     import { DocumentStore } from "orbit-db-docstore";
     import { CounterStore } from "orbit-db-counterstore";
     import IPFS from "ipfs";
+    import elliptic from "elliptic";
 
     export class OrbitDB {
 
         stores: any;
         directory: string;
         keystore: any;
+        key: elliptic.ec.KeyPair
 
         constructor(ipfs: IPFS, directory?: string, options?: {
             peerId?: string,
