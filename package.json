@@ -1,0 +1,20 @@
+{
+  "name": "@types/orbit-db",
+  "version": "1.0.0",
+  "description": "Unofficial typings for orbit-db",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukas2005/-types-orbit-db.git"
+  },
+  "keywords": [
+    "@types",
+    "typescript",
+    "orbit-db"
+  ],
+  "author": "lukas2005",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/lukas2005/-types-orbit-db/issues"
+  },
+  "homepage": "https://github.com/lukas2005/-types-orbit-db#readme"
+}
