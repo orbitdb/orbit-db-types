@@ -2,6 +2,7 @@
   "name": "@types/orbit-db",
   "version": "1.0.0",
   "description": "Unofficial typings for orbit-db",
+  "types": "OrbitDB.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lukas2005/-types-orbit-db.git"
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/lukas2005/-types-orbit-db/issues"
   },
-  "homepage": "https://github.com/lukas2005/-types-orbit-db#readme"
+  "homepage": "https://github.com/lukas2005/-types-orbit-db#readme",
+  "dependencies": {
+    "@types/events": "^1.2.0",
+    "@types/ipfs": "git+https://github.com/zabirauf/ipfs-types.git",
+    "orbit-db": "^0.19.9"
+  }
 }

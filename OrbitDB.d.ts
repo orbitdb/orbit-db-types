@@ -6,9 +6,7 @@ declare module 'orbit-db' {
     import { EventStore } from "orbit-db-eventstore";
     import { DocumentStore } from "orbit-db-docstore";
     import { CounterStore } from "orbit-db-counterstore";
-
-
-    import IPFS = require("ipfs");
+    import IPFS from "ipfs";
 
     export class OrbitDB {
 
