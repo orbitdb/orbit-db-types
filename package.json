@@ -13,7 +13,7 @@
     "orbit-db"
   ],
   "author": "lukas2005",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/lukas2005/orbit-db-types/issues"
   },
