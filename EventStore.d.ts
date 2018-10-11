@@ -12,6 +12,10 @@ declare module "orbit-db-eventstore" {
             lte?: string, 
             limit?: number, 
             reverse?: boolean 
-        }): Iterator<any>;
+        }): {
+            [Symbol.iterator](),
+            next(): any,
+            collect(): any[]
+        };
     }
 }

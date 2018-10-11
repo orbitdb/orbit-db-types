@@ -7,14 +7,17 @@ declare module "orbit-db-feedstore" {
 
         remove(hash: string): Promise<string>;
 
-        iterator(): Array<any>;
-        iterator(options: { 
-            gt: string,
-            gte: string, 
-            lt: string, 
-            lte: string, 
-            limit: number, 
-            reverse: boolean 
-        }): Array<any>;
+        iterator(options?: { 
+            gt?: string,
+            gte?: string, 
+            lt?: string, 
+            lte?: string, 
+            limit?: number, 
+            reverse?: boolean 
+        }): {
+            [Symbol.iterator](),
+            next(): any,
+            collect(): any[]
+        };
     }
 }
