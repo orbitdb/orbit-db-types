@@ -12,6 +12,6 @@ declare module "orbit-db-eventstore" {
             lte?: string, 
             limit?: number, 
             reverse?: boolean 
-        }): Array<any>;
+        }): Iterator<any>;
     }
 }
