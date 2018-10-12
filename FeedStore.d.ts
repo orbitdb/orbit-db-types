@@ -1,9 +1,9 @@
 declare module "orbit-db-feedstore" {
     import { Store } from "orbit-db-store";
 
-    export class FeedStore extends Store {
+    export class FeedStore<T> extends Store {
         add(data: any): Promise<string>;
-        get(hash: string): any;
+        get(hash: string): T;
 
         remove(hash: string): Promise<string>;
 
@@ -16,8 +16,8 @@ declare module "orbit-db-feedstore" {
             reverse?: boolean 
         }): {
             [Symbol.iterator](),
-            next(): any,
-            collect(): any[]
+            next(): T,
+            collect(): T[]
         };
     }
 }

@@ -4,6 +4,6 @@ declare module "orbit-db-counterstore" {
     export class CounterStore extends Store {
         value: number;
         
-        inc(value?: number);
+        inc(value?: number): Promise<string>;
     }
 }

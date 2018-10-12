@@ -1,12 +1,12 @@
 declare module "orbit-db-kvstore" {
     import { Store } from "orbit-db-store";
 
-    export class KeyValueStore extends Store {
+    export class KeyValueStore<K, V> extends Store {
 
-        put(key: any, value: any): Promise<void>;
-        set(key: any, value: any): Promise<void>;
+        put(key: K, value: V): Promise<void>;
+        set(key: K, value: V): Promise<void>;
 
-        get(key: any): any;
+        get(key: K): V;
 
     }
 }
