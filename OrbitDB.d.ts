@@ -27,14 +27,14 @@ declare module 'orbit-db' {
         disconnect(): Promise<void>;
         stop(): Promise<void>;
 
-        feed(address: string, options?: DBOptions): Promise<FeedStore>;
-        log(address: string, options?: DBOptions): Promise<EventStore>;
-        eventlog(address: string, options?: DBOptions): Promise<EventStore>;
-        keyvalue(address: string, options?: DBOptions): Promise<KeyValueStore>;
-        kvstore(address: string, options?: DBOptions): Promise<KeyValueStore>;
+        feed(address: string, options?: DBOptions): Promise<FeedStore<any>>;
+        log(address: string, options?: DBOptions): Promise<EventStore<any>>;
+        eventlog(address: string, options?: DBOptions): Promise<EventStore<any>>;
+        keyvalue(address: string, options?: DBOptions): Promise<KeyValueStore<any, any>>;
+        kvstore(address: string, options?: DBOptions): Promise<KeyValueStore<any, any>>;
         counter(address: string, options?: DBOptions): Promise<CounterStore>;
-        docs(address: string, options?: DBOptions): Promise<DocumentStore>;
-        docstore(address: string, options?: DBOptions): Promise<DocumentStore>;
+        docs(address: string, options?: DBOptions): Promise<DocumentStore<any>>;
+        docstore(address: string, options?: DBOptions): Promise<DocumentStore<any>>;
 
         static isValidType(type: string);
         static addDatabaseType(type: string, store: Store);
