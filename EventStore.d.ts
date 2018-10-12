@@ -14,8 +14,8 @@ declare module "orbit-db-eventstore" {
             reverse?: boolean 
         }): {
             [Symbol.iterator](),
-            next(): T,
-            collect(): T[]
+            next(): { value: T, done: boolean },
+            collect(): { payload: { value: T, done: boolean }}[]
         };
     }
 }
