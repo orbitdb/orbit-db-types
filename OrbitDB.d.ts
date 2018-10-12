@@ -1,3 +1,4 @@
+/// <reference path="./DBOptions.d.ts" />
 declare module 'orbit-db' {
     import { Store } from "orbit-db-store";
     import { KeyValueStore } from "orbit-db-kvstore";
