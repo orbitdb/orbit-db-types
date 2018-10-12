@@ -20,48 +20,21 @@ declare module 'orbit-db' {
             keystore?: any
         });
 
-        create(name: string, type: string, options?: {
-            directory?: string,
-            write?: string[],
-            overwrite?: boolean,
-            replicate?: boolean
-        }): Promise<Store>;
+        create(name: string, type: string, options?: DBOptions): Promise<Store>;
 
-        open(address: string, options?: {
-            type?: string,
-            localOnly?: boolean,
-            directory?: string,
-            create?: boolean,
-            overwrite?: boolean,
-            replicate?: boolean
-        }): Promise<Store>;
+        open(address: string, options?: DBOptions): Promise<Store>;
 
         disconnect(): Promise<void>;
         stop(): Promise<void>;
 
-        feed(address: string): Promise<FeedStore>;
-        feed(address: string, options: {}): Promise<FeedStore>;
-
-        log(address: string): Promise<EventStore>;
-        log(address: string, options: {}): Promise<EventStore>;
-
-        eventlog(address: string): Promise<EventStore>;
-        eventlog(address: string, options: {}): Promise<EventStore>;
-
-        keyvalue(address: string): Promise<KeyValueStore>;
-        keyvalue(address: string, options: {}): Promise<KeyValueStore>;
-
-        kvstore(address: string): Promise<KeyValueStore>;
-        kvstore(address: string, options: {}): Promise<KeyValueStore>;
-
-        counter(address: string): Promise<CounterStore>;
-        counter(address: string, options: {}): Promise<CounterStore>;
-
-        docs(address: string): Promise<DocumentStore>;
-        docs(address: string, options: {}): Promise<DocumentStore>;
-
-        docstore(address: string): Promise<DocumentStore>;
-        docstore(address: string, options: {}): Promise<DocumentStore>;
+        feed(address: string, options?: DBOptions): Promise<FeedStore>;
+        log(address: string, options?: DBOptions): Promise<EventStore>;
+        eventlog(address: string, options?: DBOptions): Promise<EventStore>;
+        keyvalue(address: string, options?: DBOptions): Promise<KeyValueStore>;
+        kvstore(address: string, options?: DBOptions): Promise<KeyValueStore>;
+        counter(address: string, options?: DBOptions): Promise<CounterStore>;
+        docs(address: string, options?: DBOptions): Promise<DocumentStore>;
+        docstore(address: string, options?: DBOptions): Promise<DocumentStore>;
 
         static isValidType(type: string);
         static addDatabaseType(type: string, store: Store);

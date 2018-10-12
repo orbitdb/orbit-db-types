@@ -4,7 +4,6 @@ declare module "orbit-db-counterstore" {
     export class CounterStore extends Store {
         value: number;
         
-        inc();
-        inc(value: number);
+        inc(value?: number);
     }
 }
