@@ -6,7 +6,7 @@ declare module 'orbit-db' {
     import { EventStore } from "orbit-db-eventstore";
     import { DocumentStore } from "orbit-db-docstore";
     import { CounterStore } from "orbit-db-counterstore";
-    import IPFS from "ipfs";
+    import * as IPFS from "ipfs";
     import elliptic from "elliptic";
 
     export class OrbitDB {
@@ -28,14 +28,14 @@ declare module 'orbit-db' {
         disconnect(): Promise<void>;
         stop(): Promise<void>;
 
-        feed(address: string, options?: DBOptions): Promise<FeedStore<any>>;
-        log(address: string, options?: DBOptions): Promise<EventStore<any>>;
-        eventlog(address: string, options?: DBOptions): Promise<EventStore<any>>;
-        keyvalue(address: string, options?: DBOptions): Promise<KeyValueStore<any, any>>;
-        kvstore(address: string, options?: DBOptions): Promise<KeyValueStore<any, any>>;
+        feed<T>(address: string, options?: DBOptions): Promise<FeedStore<T>>;
+        log<T>(address: string, options?: DBOptions): Promise<EventStore<T>>;
+        eventlog<T>(address: string, options?: DBOptions): Promise<EventStore<T>>;
+        keyvalue<T>(address: string, options?: DBOptions): Promise<KeyValueStore<T>>;
+        kvstore<T>(address: string, options?: DBOptions): Promise<KeyValueStore<T>>;
         counter(address: string, options?: DBOptions): Promise<CounterStore>;
-        docs(address: string, options?: DBOptions): Promise<DocumentStore<any>>;
-        docstore(address: string, options?: DBOptions): Promise<DocumentStore<any>>;
+        docs<T>(address: string, options?: DBOptions): Promise<DocumentStore<T>>;
+        docstore<T>(address: string, options?: DBOptions): Promise<DocumentStore<T>>;
 
         static isValidType(type: string);
         static addDatabaseType(type: string, store: Store);
