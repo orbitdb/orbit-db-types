@@ -7,7 +7,7 @@ declare module 'orbit-db' {
     import { DocumentStore } from "orbit-db-docstore";
     import { CounterStore } from "orbit-db-counterstore";
     import * as IPFS from "ipfs";
-    import elliptic from "elliptic";
+    import * as elliptic from "elliptic";
 
     export class OrbitDB {
 
