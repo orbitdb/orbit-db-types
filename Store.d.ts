@@ -1,24 +1,52 @@
 declare module "orbit-db-store" {
     import IPFS = require("ipfs");
     import { EventEmitter } from 'events';
+    import * as elliptic from "elliptic";
 
     export class Store {
 
         address: { root: string, path: string };
-        key: any;
+        /** 
+         * Contains all entries of this Store
+         */
+        all: any[];
         type: string;
-        replicationStatus: { buffered: number, queued: number, progress: number, max: number};
-
+        /**
+         * Returns an instance of `elliptic.ec.KeyPair`.
+         * The keypair is used to sign the database entries.
+         * The key can also be accessed from the OrbitDB instance: `orbitdb.key.getPublic('hex')`.
+         */
+        key: elliptic.ec.KeyPair;
+        replicationStatus: IReplicationStatus;
+         
         events: EventEmitter;
 
-        constructor (ipfs: IPFS, identity, address: string, options: {});
-        
-        load(): Promise<void>;
-        load(smount: number): Promise<void>;
+        /**
+         * Apparently not meant for outside usage
+         * @param ipfs 
+         * @param identity 
+         * @param address 
+         * @param options 
+         */
+        protected constructor (ipfs: IPFS, identity, address: string, options: IStoreOptions);
 
         close(): Promise<void>;
         drop(): Promise<void>;
 
+        /**
+         * Load the locally persisted database state to memory.
+         * @param amount Amount of entries loaded into memory
+         * @returns a `Promise` that resolves once complete
+         */
+        load(amount?: number): Promise<void>;
+
         protected _addOperation(data: any);
+    }
+
+    export interface IReplicationStatus {
+        buffered: number;
+        queued: number;
+        progress: number;
+        max: number;
     }
 }
