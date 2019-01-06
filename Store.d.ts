@@ -33,7 +33,7 @@ declare module "orbit-db-store" {
         close(): Promise<void>;
         drop(): Promise<void>;
 
-        /**sd
+        /**
          * Load the locally persisted database state to memory.
          * @param amount Amount of entries loaded into memory
          * @returns a `Promise` that resolves once complete
