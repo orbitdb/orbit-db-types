@@ -1,13 +1,19 @@
-# Info
-This repository contains unofficial typescript definitons for [OrbitDB](https://github.com/orbitdb/orbit-db)
+# OrbitDB Types
 
+This repository contains unofficial typescript definitons for [OrbitDB](https://github.com/orbitdb/orbit-db).
 
-# Usage
-All you have to do is install this package:
-`npm i https://github.com/lukas2005/orbit-db-types.git`
+# Install
 
-# License
-This repo is licensed under the MIT license. See LICENSE for more info
+Install this package using [npm](https://github.com/orbitdb/orbit-db-types):
+
+```sh
+$ npm i https://github.com/lukas2005/orbit-db-types.git
+```
 
 # Contributing
-Contribution is welcome :)
+
+Contributions are welcome. :)
+
+# License
+
+[MIT](LICENSE) © 2018 Łukasz Mariański
