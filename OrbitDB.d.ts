@@ -8,6 +8,8 @@ declare module 'orbit-db' {
     import { DocumentStore } from "orbit-db-docstore";
     import { CounterStore } from "orbit-db-counterstore";
     import { Keystore } from "orbit-db-keystore";
+    import { Cache } from "orbit-db-cache";
+    import { Identity } from "orbit-db-identity-provider";
     import * as IPFS from "ipfs";
     import * as elliptic from "elliptic";
 
@@ -16,21 +18,34 @@ declare module 'orbit-db' {
         stores: any;
         directory: string;
         keystore: Keystore;
-        key: elliptic.ec.KeyPair
 
         static databaseTypes: string[];
         
-        /**
-         * Creates and returns an instance of OrbitDB. 
-         * @param ipfs 
-         * @param directory Directory to be used for the database files (Default `./orbitdb`)
-         * @param options Other options: 
-         * <ul><li>peerId: By default it uses the base58 string of the ipfs peer id.</li></ul>
-         */
+
         constructor(ipfs: IPFS, directory?: string, options?: {
             peerId?: string,
             keystore?: Keystore
         });
+
+        /**
+         * Creates and returns an instance of OrbitDB. 
+         * @param ipfs 
+         * @param options Other options: 
+         * <ul>
+         * <li>directory (string): path to be used for the database files. By default it uses './orbitdb'.</li>
+         * <li>peerId (string): By default it uses the base58 string of the ipfs peer id.</li>
+         * <li>keystore (Keystore Instance) : By default creates an instance of Keystore.</li>
+         * <li>cache (Cache Instance) : By default creates an instance of Cache. A custom cache instance can also be used.</li>
+         * <li>identity (Identity Instance): By default it creates an instance of Identity</li>
+         * </ul>
+         */
+        createInstance(ipfs: IPFS, options?: {
+            directory: string,
+            peerId?: string,
+            keystore?: Keystore,
+            cache: Cache,
+            identity: Identity
+        })
 
         create(name: string, type: string, options?: ICreateOptions): Promise<Store>;
 
