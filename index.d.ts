@@ -5,4 +5,6 @@
 /// <reference path="./EventStore.d.ts"    />
 /// <reference path="./FeedStore.d.ts"     />
 /// <reference path="./KeyValueStore.d.ts" />
-/// <reference path="./DBOptions.d.ts" />
+/// <reference path="./Identity.d.ts"      />
+/// <reference path="./Keystore.d.ts"      />
+/// <reference path="./DBOptions.d.ts"     />

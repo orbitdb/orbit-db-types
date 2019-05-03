@@ -39,13 +39,13 @@ declare module 'orbit-db' {
          * <li>identity (Identity Instance): By default it creates an instance of Identity</li>
          * </ul>
          */
-        createInstance(ipfs: IPFS, options?: {
+        static createInstance(ipfs: IPFS, options?: {
             directory: string,
             peerId?: string,
             keystore?: Keystore,
             cache: Cache,
             identity: Identity
-        })
+        }): OrbitDB
 
         create(name: string, type: string, options?: ICreateOptions): Promise<Store>;
 
