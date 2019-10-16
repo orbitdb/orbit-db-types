@@ -3,7 +3,7 @@ declare module "orbit-db-eventstore" {
 
     export class EventStore<T> extends Store {
         add(data: any): Promise<string>;
-        get(hash: string): T;
+        get(hash: string): LogEntry<T>;
 
         iterator(options?: { 
             gt?: string,
@@ -14,8 +14,8 @@ declare module "orbit-db-eventstore" {
             reverse?: boolean 
         }): {
             [Symbol.iterator](),
-            next(): { value: T, done: boolean },
-            collect(): { payload: { value: T, done: boolean }}[]
+            next(): { value: LogEntry<T>, done: boolean },
+            collect(): LogEntry<T>[]
         };
     }
 }
