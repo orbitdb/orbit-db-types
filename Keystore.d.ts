@@ -1,5 +1,3 @@
-import crypto from "libp2p-crypto";
-
 declare module "orbit-db-keystore" {
     export class Keystore {
 
