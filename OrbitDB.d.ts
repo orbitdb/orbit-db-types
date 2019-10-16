@@ -40,11 +40,11 @@ declare module 'orbit-db' {
          * </ul>
          */
         static createInstance(ipfs: IPFS, options?: {
-            directory: string,
+            directory?: string,
             peerId?: string,
             keystore?: Keystore,
-            cache: Cache,
-            identity: Identity
+            cache?: Cache,
+            identity?: Identity
         }): OrbitDB
 
         create(name: string, type: string, options?: ICreateOptions): Promise<Store>;
