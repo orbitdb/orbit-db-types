@@ -1,9 +1,10 @@
+declare type LogEntry<T> = import('./LogEntry').LogEntry<T>;
 declare module "orbit-db-feedstore" {
     import { Store } from "orbit-db-store";
 
     export class FeedStore<T> extends Store {
         add(data: any): Promise<string>;
-        get(hash: string): T;
+        get(hash: string): LogEntry<T>
 
         remove(hash: string): Promise<string>;
 
@@ -16,8 +17,8 @@ declare module "orbit-db-feedstore" {
             reverse?: boolean 
         }): {
             [Symbol.iterator](),
-            next(): { value: T, done: boolean },
-            collect(): { payload: { value: T, done: boolean }}[]
+            next(): { value: LogEntry<T>, done: boolean },
+            collect(): LogEntry<T>[]
         };
     }
 }
