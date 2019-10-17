@@ -61,6 +61,7 @@ interface IOpenOptions {
 
 interface IStoreOptions extends ICreateOptions, IOpenOptions { }
 
-type TStoreType ='log' | 'feed' | 'keyvalue' | 'docs' | 'counter' | string;
+// c.f. https://github.com/orbitdb/orbit-db/blob/master/API.md#orbitdbdatabasetypes
+type TStoreType = 'counter' | 'eventlog' | 'feed' | 'docstore' | 'keyvalue' | string;
 
 //export {ICreateOptions, IOpenOptions, IStoreOptions};
