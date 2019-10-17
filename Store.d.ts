@@ -1,9 +1,16 @@
+
 declare module "orbit-db-store" {
     import IPFS = require("ipfs");
+    import {Identity} from "orbit-db-identity-provider";
     import { EventEmitter } from 'events';
     import * as elliptic from "elliptic";
 
     export class Store {
+
+        /**
+         * The identity is used to sign the database entries.
+         */
+        readonly identity: Identity;
 
         address: { root: string, path: string };
         /** 
