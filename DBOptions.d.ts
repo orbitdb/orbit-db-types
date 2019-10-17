@@ -1,3 +1,4 @@
+
 interface ICreateOptions {
     /**
      * The directory where data will be stored (Default: uses directory option passed to OrbitDB constructor or ./orbitdb if none was provided).
@@ -45,7 +46,7 @@ interface IOpenOptions {
      * Otherwise it's used to validate the manifest.
      * You ony need to set this if using OrbitDB#open
      */
-    type?: string;
+    type?: TStoreType;
 
     /**
      * Overwrite an existing database (Default: false)
@@ -59,5 +60,7 @@ interface IOpenOptions {
 }
 
 interface IStoreOptions extends ICreateOptions, IOpenOptions { }
+
+type TStoreType ='log' | 'feed' | 'keyvalue' | 'docs' | 'counter' | string;
 
 //export {ICreateOptions, IOpenOptions, IStoreOptions};
