@@ -1,4 +1,3 @@
-declare type LogEntry<T> = import('./LogEntry').LogEntry<T>;
 declare module "orbit-db-feedstore" {
     import { Store } from "orbit-db-store";
 
