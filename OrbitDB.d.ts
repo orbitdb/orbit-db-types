@@ -47,7 +47,7 @@ declare module 'orbit-db' {
             identity?: Identity
         }): Promise<OrbitDB>
 
-        create(name: string, type: string, options?: ICreateOptions): Promise<Store>;
+        create(name: string, type: TStoreType, options?: ICreateOptions): Promise<Store>;
 
         open(address: string, options?: IOpenOptions): Promise<Store>;
 
@@ -63,7 +63,7 @@ declare module 'orbit-db' {
         docs<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
         docstore<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
 
-        static isValidType(type: string);
+        static isValidType(type: TStoreType);
         static addDatabaseType(type: string, store: typeof Store);
         static getDatabaseTypes(): {};
         static isValidAddress(address: string): boolean;
