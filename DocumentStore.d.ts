@@ -1,7 +1,7 @@
 declare module "orbit-db-docstore" {
-    import { Store } from "orbit-db-store";
+    import Store from "orbit-db-store";
 
-    export class DocumentStore<T> extends Store {
+    class DocumentStore<T> extends Store {
 
         put(key: any, value: any): Promise<string>;
         get(key: any): T[];
@@ -11,4 +11,5 @@ declare module "orbit-db-docstore" {
         del(key: any): Promise<string>;
         
     }
+    export = DocumentStore
 }
