@@ -8,11 +8,11 @@ declare module "orbit-db-identity-provider" {
         private _type: string
         private _provider: string
 
-        get id(): string
-        get publicKey(): string
-        get signatures(): {id:string, publicKey:string}
-        get type(): string
-        get provider(): string
+        readonly id: string
+        readonly publicKey: string
+        readonly signatures: { id: string, publicKey: string }
+        readonly type: string
+        readonly provider: string
 
         toJSON(): {
             id:string,
