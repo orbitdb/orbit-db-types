@@ -50,11 +50,5 @@ declare module "orbit-db-store" {
         protected _addOperation(data: any);
     }
 
-    interface IReplicationStatus {
-        buffered: number;
-        queued: number;
-        progress: number;
-        max: number;
-    }
     export = Store
 }
