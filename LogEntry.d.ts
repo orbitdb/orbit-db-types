@@ -8,7 +8,7 @@ interface LamportClockJson {
     id: 'string',
     time: number
 }
-export interface LogEntry<T>{
+interface LogEntry<T>{
     hash: string,
     id: string,
     payload: { op?: string, key?: string, value: T},
