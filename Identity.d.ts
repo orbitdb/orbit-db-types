@@ -1,75 +1,7 @@
-declare module "orbit-db-identity-provider" {
+declare module 'orbit-db-identity-provider' {
     import {Keystore} from 'orbit-db-keystore';
-
-    export type IdentityProviderType = 'orbitdb' | 'ethereum' | string;
-
-    export interface IdentityProviderOptions {
-        /**
-         * required by OrbitDBIdentityProvider
-         */
-        id?: string
-        /**
-         * required by OrbitDBIdentityProvider
-         */
-        keystore?: Keystore
-        /**
-         * required by OrbitDBIdentityProvider
-         */
-        signingKeystore?: Keystore
-        /**
-         * required by EthIdentityProvider
-         */
-        wallet?: any
-
-        [k: string]: any
-    }
-
-    export class IdentityProvider {
-        constructor(options: IdentityProviderOptions)
-
-        /**
-         * Return the type for this identity-provider
-         */
-        readonly type: IdentityProviderType;
-
-        /**
-         * Return id of identity (to be signed by orbit-db public key)
-         */
-        getId(options?: IdentityProviderOptions): Promise<string>
-
-        /**
-         * Return signature of OrbitDB public key signature
-         */
-        signIdentity(data, options?): Promise<any>
-
-        /**
-         * Verify a signature of OrbitDB public key signature
-         */
-        static verifyIdentity(identity: IdentityAsJson): Promise<boolean>
-
-    }
-
-    export interface IdentityAsJson {
-        id: string;
-        publicKey: string;
-        signatures: {
-            id: string,
-            publicKey: string
-        };
-        type: IdentityProviderType;
-    }
-
-    export class Identity implements IdentityAsJson {
-        constructor(id: string, publicKey: string, idSignature: string, pubKeyIdSignature: string, type: string, provider: IdentityProvider)
-
-        readonly id: string;
-        readonly publicKey: string;
-        readonly signatures: { id: string; publicKey: string };
-        readonly type: IdentityProviderType;
-        readonly provider: Identities;
-
-        toJSON(): IdentityAsJson
-    }
+    import Identity, {IdentityAsJson, IdentityProviderType} from 'orbit-db-identity-provider/src/identity';
+    import IdentityProvider, {IdentityProviderOptions} from 'orbit-db-identity-provider/src/identity-provider-interface';
 
     export interface CreateIdentityOptions extends IdentityProviderOptions {
         type?: IdentityProviderType
@@ -106,6 +38,93 @@ declare module "orbit-db-identity-provider" {
         static addIdentityProvider(IdentityProviderType: typeof IdentityProvider): void
 
         static removeIdentityProvider(type: IdentityProviderType): void
+    }
+
+}
+
+declare module 'orbit-db-identity-provider/src/identity' {
+    import IdentityProvider from 'orbit-db-identity-provider/src/identity-provider-interface';
+    import Identities from 'orbit-db-identity-provider';
+
+    export type IdentityProviderType = 'orbitdb' | 'ethereum' | string;
+
+    export interface IdentityAsJson {
+        id: string;
+        publicKey: string;
+        signatures: {
+            id: string,
+            publicKey: string
+        };
+        type: IdentityProviderType;
+    }
+
+    export default class Identity implements IdentityAsJson {
+        constructor(id: string,
+                    publicKey: string,
+                    idSignature: string,
+                    pubKeyIdSignature: string,
+                    type: string,
+                    provider: IdentityProvider
+        )
+
+        readonly id: string;
+        readonly publicKey: string;
+        readonly signatures: { id: string; publicKey: string };
+        readonly type: IdentityProviderType;
+        readonly provider: Identities;
+
+        toJSON(): IdentityAsJson
+    }
+
+}
+
+declare module 'orbit-db-identity-provider/src/identity-provider-interface' {
+    import {Keystore} from 'orbit-db-keystore';
+    import {IdentityAsJson, IdentityProviderType} from 'orbit-db-identity-provider/src/identity';
+
+    export interface IdentityProviderOptions {
+        /**
+         * required by OrbitDBIdentityProvider
+         */
+        id?: string
+        /**
+         * required by OrbitDBIdentityProvider
+         */
+        keystore?: Keystore
+        /**
+         * required by OrbitDBIdentityProvider
+         */
+        signingKeystore?: Keystore
+        /**
+         * required by EthIdentityProvider
+         */
+        wallet?: any
+
+        [k: string]: any
+    }
+
+    export default class IdentityProviderInterface {
+        constructor(options: IdentityProviderOptions)
+
+        /**
+         * Return id of identity (to be signed by orbit-db public key)
+         */
+        getId(options?: IdentityProviderOptions): Promise<string>
+
+        /**
+         * Return signature of OrbitDB public key signature
+         */
+        signIdentity(data, options?): Promise<any>
+
+        /**
+         * Verify a signature of OrbitDB public key signature
+         */
+        static verifyIdentity(identity: IdentityAsJson): Promise<boolean>
+
+        /**
+         * Return the type for this identity-provider
+         */
+        static readonly type: IdentityProviderType;
     }
 
 }

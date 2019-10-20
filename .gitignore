@@ -1,1 +1,8 @@
+# IDE
+.idea
+
+# NODE
 node_modules
+
+# BUILD
+.tmp

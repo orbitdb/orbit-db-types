@@ -19,10 +19,22 @@
     "url": "https://github.com/lukas2005/orbit-db-types/issues"
   },
   "homepage": "https://github.com/lukas2005/orbit-db-types#readme",
+  "scripts": {
+    "test": "TS_NODE_PROJECT=tsconfig.test.json mocha -r ts-node/register *.spec.ts"
+  },
   "dependencies": {
-    "@types/elliptic": "^6.4.6",
+    "@types/elliptic": "^6.4.10",
     "@types/events": "^1.2.0",
     "@types/ipfs": "git+https://github.com/lukas2005/types-ipfs.git",
     "orbit-db": "git+https://github.com/orbitdb/orbit-db.git"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.3",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "orbit-db-identity-provider": "^0.2.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
   }
 }
