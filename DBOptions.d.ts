@@ -12,7 +12,12 @@ interface ICreateOptions {
          * See the GETTING STARTED guide for more info.
          * (Default: uses the OrbitDB instance key orbitdb.key, which would give write access only to yourself)
          */
-        write?: string[] 
+        write?: string[]
+        
+        /**
+         * Name of custom AccessController
+         */
+        type?: string 
     };
     
     /**
