@@ -39,7 +39,9 @@ declare module "orbit-db-store" {
 
         close(): Promise<void>;
         drop(): Promise<void>;
-
+        
+        setIdentity(identity: Identity): void;
+        
         /**
          * Load the locally persisted database state to memory.
          * @param amount Amount of entries loaded into memory
@@ -50,5 +52,14 @@ declare module "orbit-db-store" {
         protected _addOperation(data: any);
     }
 
+<<<<<<< HEAD
     export = Store
+=======
+    export interface IReplicationStatus {
+        buffered: number;
+        queued: number;
+        progress: number;
+        max: number;
+    }
+>>>>>>> origin/patch-5
 }
