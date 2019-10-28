@@ -5,7 +5,7 @@ declare module "orbit-db-store" {
     import { EventEmitter } from 'events';
     import * as elliptic from "elliptic";
 
-    class Store {
+    export default class Store {
 
         /**
          * The identity is used to sign the database entries.
@@ -50,5 +50,4 @@ declare module "orbit-db-store" {
         protected _addOperation(data: any);
     }
 
-    export = Store
 }
