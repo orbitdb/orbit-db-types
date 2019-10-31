@@ -5,7 +5,7 @@ declare module "orbit-db-store" {
     import { EventEmitter } from 'events';
     import * as elliptic from "elliptic";
 
-    export class Store {
+    export default class Store {
 
         /**
          * The identity is used to sign the database entries.
@@ -50,12 +50,5 @@ declare module "orbit-db-store" {
         load(amount?: number): Promise<void>;
 
         protected _addOperation(data: any);
-    }
-
-    export interface IReplicationStatus {
-        buffered: number;
-        queued: number;
-        progress: number;
-        max: number;
     }
 }

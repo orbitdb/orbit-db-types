@@ -1,7 +1,7 @@
 declare module "orbit-db-eventstore" {
-    import { Store } from "orbit-db-store";
+    import Store from "orbit-db-store";
 
-    export class EventStore<T> extends Store {
+    export default class EventStore<T> extends Store {
         add(data: any): Promise<string>;
         get(hash: string): LogEntry<T>;
 

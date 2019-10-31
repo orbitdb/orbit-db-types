@@ -1,12 +1,12 @@
 /// <reference path="./DBOptions.d.ts" />
 /// <reference path="./LogEntry.d.ts" />
 declare module 'orbit-db' {
-    import { Store } from "orbit-db-store";
-    import { KeyValueStore } from "orbit-db-kvstore";
-    import { FeedStore } from "orbit-db-feedstore";
-    import { EventStore } from "orbit-db-eventstore";
-    import { DocumentStore } from "orbit-db-docstore";
-    import { CounterStore } from "orbit-db-counterstore";
+    import Store from "orbit-db-store";
+    import KeyValueStore from "orbit-db-kvstore";
+    import FeedStore from "orbit-db-feedstore";
+    import EventStore from "orbit-db-eventstore";
+    import DocumentStore from "orbit-db-docstore";
+    import CounterStore from "orbit-db-counterstore";
     import { Keystore } from "orbit-db-keystore";
     import { Cache } from "orbit-db-cache";
     import { Identity } from "orbit-db-identity-provider";

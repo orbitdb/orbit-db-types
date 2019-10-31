@@ -8,3 +8,5 @@
 /// <reference path="./Identity.d.ts"      />
 /// <reference path="./Keystore.d.ts"      />
 /// <reference path="./DBOptions.d.ts"     />
+/// <reference path="./LogEntry.d.ts" />
+/// <reference path="./IReplicationStatus.d.ts" />
