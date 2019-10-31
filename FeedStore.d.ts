@@ -1,7 +1,7 @@
 declare module "orbit-db-feedstore" {
     import Store from "orbit-db-store";
 
-    class FeedStore<T> extends Store {
+    export default class FeedStore<T> extends Store {
         add(data: any): Promise<string>;
         get(hash: string): LogEntry<T>
 
@@ -20,5 +20,4 @@ declare module "orbit-db-feedstore" {
             collect(): LogEntry<T>[]
         };
     }
-    export = FeedStore
 }
