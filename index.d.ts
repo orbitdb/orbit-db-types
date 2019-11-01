@@ -10,3 +10,6 @@
 /// <reference path="./DBOptions.d.ts"     />
 /// <reference path="./LogEntry.d.ts" />
 /// <reference path="./IReplicationStatus.d.ts" />
+/// <reference path="./OrbitDBAccessControllers/OrbitDBAccessControllers.d.ts" />
+/// <reference path="./OrbitDBAccessControllers/OrbitDBAccessController.d.ts" />
+/// <reference path="./OrbitDBAccessControllers/AccessControllerInterface.d.ts" />
