@@ -1,7 +1,6 @@
-
 declare module "orbit-db-store" {
     import IPFS = require("ipfs");
-    import {Identity} from "orbit-db-identity-provider";
+    import { Identity } from "orbit-db-identity-provider";
     import { EventEmitter } from 'events';
     import * as elliptic from "elliptic";
 
@@ -35,7 +34,7 @@ declare module "orbit-db-store" {
          * @param address 
          * @param options 
          */
-        protected constructor (ipfs: IPFS, identity, address: string, options: IStoreOptions);
+        protected constructor (ipfs: IPFS, identity: Identity, address: string, options: IStoreOptions);
 
         close(): Promise<void>;
         drop(): Promise<void>;
@@ -49,6 +48,6 @@ declare module "orbit-db-store" {
          */
         load(amount?: number): Promise<void>;
 
-        protected _addOperation(data: any);
+        protected _addOperation(data: any, options: { onProgressCallback?: (entry: any) => any, pin?: boolean }): Promise<string>;
     }
 }
