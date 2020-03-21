@@ -41,7 +41,7 @@ declare module "orbit-db-identity-provider" {
         /**
          * Return signature of OrbitDB public key signature
          */
-        signIdentity(data: any, options?: { [key: string]: string, id: string }): Promise<any>
+        signIdentity(data: any, options?: { [key: string]: any, id: string }): Promise<any>
 
         /**
          * Verify a signature of OrbitDB public key signature
