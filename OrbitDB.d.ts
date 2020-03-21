@@ -63,8 +63,8 @@ declare module 'orbit-db' {
         docs<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
         docstore<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
 
-        static isValidType(type: TStoreType);
-        static addDatabaseType(type: string, store: typeof Store);
+        static isValidType(type: TStoreType): boolean;
+        static addDatabaseType(type: string, store: typeof Store): void;
         static getDatabaseTypes(): {};
         static isValidAddress(address: string): boolean;
     }

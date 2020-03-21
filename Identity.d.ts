@@ -1,5 +1,6 @@
 declare module "orbit-db-identity-provider" {
-    import {Keystore} from 'orbit-db-keystore';
+    import Store from 'orbit-db-store';
+    import { Keystore } from 'orbit-db-keystore';
 
     export type IdentityProviderType = 'orbitdb' | 'ethereum' | string;
 
@@ -40,7 +41,7 @@ declare module "orbit-db-identity-provider" {
         /**
          * Return signature of OrbitDB public key signature
          */
-        signIdentity(data, options?): Promise<any>
+        signIdentity(data: any, options?: { [key: string]: string, id: string }): Promise<any>
 
         /**
          * Verify a signature of OrbitDB public key signature
@@ -74,7 +75,7 @@ declare module "orbit-db-identity-provider" {
     export interface CreateIdentityOptions extends IdentityProviderOptions {
         type?: IdentityProviderType
         identityKeysPath?: string
-        migrate?: ({targetStore: Store, targetId: string}) => Promise<void>
+        migrate?: (options: { targetStore: Store, targetId: string }) => Promise<void>
     }
 
     export interface StaticCreateIdentityOptions extends CreateIdentityOptions {
