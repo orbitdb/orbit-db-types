@@ -21,6 +21,9 @@ declare module 'orbit-db' {
         stores: any;
         directory: string;
         keystore: Keystore;
+        
+        // For OpenTelemetry Plugin
+        span?: any;
 
         static databaseTypes: string[];
         
@@ -66,8 +69,10 @@ declare module 'orbit-db' {
         docs<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
         docstore<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
 
-        static isValidType(type: TStoreType);
-        static addDatabaseType(type: string, store: typeof Store);
+        _onPeerConnected(address: string, peer: string): null;
+
+        static isValidType(type: TStoreType): boolean;
+        static addDatabaseType(type: string, store: typeof Store): null;
         static getDatabaseTypes(): {};
         static isValidAddress(address: string): boolean;
     }
