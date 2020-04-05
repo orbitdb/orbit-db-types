@@ -49,6 +49,6 @@ declare module "orbit-db-store" {
          */
         load(amount?: number): Promise<void>;
 
-        protected _addOperation(data: any);
+        protected _addOperation(data: any): any;
     }
 }
