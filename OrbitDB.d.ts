@@ -15,6 +15,8 @@ declare module 'orbit-db' {
 
     export class OrbitDB {
 
+        _ipfs: IPFS;
+
         id: string;
         stores: any;
         directory: string;
