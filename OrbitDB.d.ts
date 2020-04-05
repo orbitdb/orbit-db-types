@@ -15,6 +15,7 @@ declare module 'orbit-db' {
 
     export class OrbitDB {
 
+        id: string;
         stores: any;
         directory: string;
         keystore: Keystore;
