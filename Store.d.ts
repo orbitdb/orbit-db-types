@@ -35,7 +35,7 @@ declare module "orbit-db-store" {
          * @param address 
          * @param options 
          */
-        protected constructor (ipfs: IPFS, identity, address: string, options: IStoreOptions);
+        protected constructor (ipfs: IPFS, identity: any, address: string, options: IStoreOptions);
 
         close(): Promise<void>;
         drop(): Promise<void>;
