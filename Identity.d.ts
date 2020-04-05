@@ -74,7 +74,8 @@ declare module "orbit-db-identity-provider" {
     export interface CreateIdentityOptions extends IdentityProviderOptions {
         type?: IdentityProviderType
         identityKeysPath?: string
-        migrate?: ({targetStore: Store, targetId: string}) => Promise<void>
+        migrate?: any
+        // migrate?: ({targetStore: Store, targetId: string}) => Promise<void>
     }
 
     export interface StaticCreateIdentityOptions extends CreateIdentityOptions {
