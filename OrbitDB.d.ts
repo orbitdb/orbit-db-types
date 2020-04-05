@@ -8,7 +8,6 @@ declare module 'orbit-db' {
     import DocumentStore from "orbit-db-docstore";
     import CounterStore from "orbit-db-counterstore";
     import { Keystore } from "orbit-db-keystore";
-    import { Cache } from "orbit-db-cache";
     import { Identity } from "orbit-db-identity-provider";
     import * as IPFS from "ipfs";
     import * as elliptic from "elliptic";
@@ -49,7 +48,7 @@ declare module 'orbit-db' {
             directory?: string,
             peerId?: string,
             keystore?: Keystore,
-            cache?: Cache,
+            cache?: any,
             identity?: Identity
         }): Promise<OrbitDB>
 
