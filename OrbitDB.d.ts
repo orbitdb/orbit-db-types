@@ -15,9 +15,15 @@ declare module 'orbit-db' {
 
     export class OrbitDB {
 
+        _ipfs: IPFS;
+
+        id: string;
         stores: any;
         directory: string;
         keystore: Keystore;
+        
+        // For OpenTelemetry Plugin
+        span?: any;
 
         static databaseTypes: string[];
         

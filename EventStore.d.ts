@@ -13,7 +13,7 @@ declare module "orbit-db-eventstore" {
             limit?: number, 
             reverse?: boolean 
         }): {
-            [Symbol.iterator](),
+            [Symbol.iterator](): any,
             next(): { value: LogEntry<T>, done: boolean },
             collect(): LogEntry<T>[]
         };
