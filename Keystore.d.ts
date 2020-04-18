@@ -16,8 +16,8 @@ declare module "orbit-db-keystore" {
         static verify(signature: string, publicKey: string, data: string, v?: string): Promise<boolean>
     }
 
-    export default class {
-        static create(directory?: string): any;
-        static verify(signature: string, publicKey: string, data: string, v?:string): Promise<boolean>
-    }
+//     export default class {
+//         static create(directory?: string): any;
+//         static verify(signature: string, publicKey: string, data: string, v?:string): Promise<boolean>
+//     }
 }
