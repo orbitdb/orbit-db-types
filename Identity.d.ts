@@ -40,7 +40,7 @@ declare module "orbit-db-identity-provider" {
         /**
          * Return signature of OrbitDB public key signature
          */
-        signIdentity(data, options?): Promise<any>
+        signIdentity(data: any, options?: any): Promise<any>
 
         /**
          * Verify a signature of OrbitDB public key signature
@@ -74,7 +74,8 @@ declare module "orbit-db-identity-provider" {
     export interface CreateIdentityOptions extends IdentityProviderOptions {
         type?: IdentityProviderType
         identityKeysPath?: string
-        migrate?: ({targetStore: Store, targetId: string}) => Promise<void>
+        migrate?: any
+        // migrate?: ({targetStore: Store, targetId: string}) => Promise<void>
     }
 
     export interface StaticCreateIdentityOptions extends CreateIdentityOptions {

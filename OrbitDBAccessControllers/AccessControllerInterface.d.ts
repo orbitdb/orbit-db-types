@@ -1,7 +1,6 @@
 
 declare module "orbit-db-access-controllers/src/access-controller-interface" {
 
-    import EventEmitter from 'events'
     import OrbitDB from 'orbit-db'
     import { Identity } from 'orbit-db-identity-provider'
 
@@ -12,7 +11,7 @@ declare module "orbit-db-access-controllers/src/access-controller-interface" {
      * Any OrbitDB access controller needs to define and implement
      * the methods defined by the interface here.
      */
-    export default class AccessController extends EventEmitter {
+    export default class AccessController {
         /*
             Every AC needs to have a 'Factory' method
             that creates an instance of the AccessController
@@ -37,7 +36,7 @@ declare module "orbit-db-access-controllers/src/access-controller-interface" {
             be allowed in the database. Return true if the entry is allowed,
             false is not allowed
         */
-        canAppend (entry: LogEntry<any>, identityProvider): Promise<boolean>
+        canAppend (entry: LogEntry<any>, identityProvider: any): Promise<boolean>
 
         /* Add and remove access */
         grant (access: string, identity: any): Promise<any>
