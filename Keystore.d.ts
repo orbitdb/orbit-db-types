@@ -1,16 +1,18 @@
 declare module "orbit-db-keystore" {
     export class Keystore {
+        constructor(input?: string | { open?: Function, store?: string, cache?: any })
 
-        hasKey(id:string): Promise<boolean>
+        hasKey(id: string): Promise<boolean>
+        createKey(id: string): Promise<{ publicKey: string, privateKey: string }>
+        getKey(id: string): Promise<{ publicKey: string, privateKey: string }>
 
-        createKey(id:string): Promise<{publicKey: string, privateKey: string}>
+        sign(key: any, data: any): Promise<string>
+        getPublic(keys: any, options?: { decompress?: boolean, format: string, [key: string]: any }): string
 
-        getKey(id:string): Promise<{publicKey: string, privateKey: string}>
+        open(): Promise<void>
+        close(): Promise<void>
 
-    }
-
-    export default class {
-        static create(directory?: string): any;
-        static verify(signature: string, publicKey: string, data: string, v?:string): Promise<boolean>
+        verify(signature: string, publicKey: string, data: string, v?: string): Promise<boolean>
+        static verify(signature: string, publicKey: string, data: string, v?: string): Promise<boolean>
     }
 }

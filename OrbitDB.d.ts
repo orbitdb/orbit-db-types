@@ -8,6 +8,7 @@ declare module 'orbit-db' {
     import DocumentStore from "orbit-db-docstore";
     import CounterStore from "orbit-db-counterstore";
     import { Keystore } from "orbit-db-keystore";
+    import Cache from "orbit-db-cache";
     import { Identity } from "orbit-db-identity-provider";
     import * as IPFS from "ipfs";
     import * as elliptic from "elliptic";
@@ -48,7 +49,7 @@ declare module 'orbit-db' {
             directory?: string,
             peerId?: string,
             keystore?: Keystore,
-            cache?: any,
+            cache?: Cache<any>,
             identity?: Identity
         }): Promise<OrbitDB>
 
@@ -68,10 +69,8 @@ declare module 'orbit-db' {
         docs<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
         docstore<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
 
-        _onPeerConnected(address: string, peer: string): null;
-
         static isValidType(type: TStoreType): boolean;
-        static addDatabaseType(type: string, store: typeof Store): null;
+        static addDatabaseType(type: string, store: typeof Store): void;
         static getDatabaseTypes(): {};
         static isValidAddress(address: string): boolean;
     }
