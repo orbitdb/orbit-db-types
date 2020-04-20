@@ -15,7 +15,7 @@ declare module "orbit-db-feedstore" {
             limit?: number, 
             reverse?: boolean 
         }): {
-            [Symbol.iterator](): any,
+            [Symbol.iterator](): Iterator<LogEntry<T>>,
             next(): { value: LogEntry<T>, done: boolean },
             collect(): LogEntry<T>[]
         };
