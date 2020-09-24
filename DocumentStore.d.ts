@@ -3,7 +3,7 @@ declare module "orbit-db-docstore" {
 
     export default class DocumentStore<T> extends Store {
 
-        put(doc: any): Promise<string>;
+        put(doc: T): Promise<string>;
         get(key: any): T[];
 
         query(mapper: (doc: T) => void): T[]
