@@ -12,7 +12,7 @@ declare module 'orbit-db' {
     import { Identity } from "orbit-db-identity-provider";
     import * as IPFS from "ipfs";
     import * as elliptic from "elliptic";
-
+    import OrbitDBAddress from 'orbit-db'
     export class OrbitDB {
 
         _ipfs: IPFS;
@@ -68,6 +68,8 @@ declare module 'orbit-db' {
         counter(address: string, options?: IStoreOptions): Promise<CounterStore>;
         docs<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
         docstore<T>(address: string, options?: IStoreOptions): Promise<DocumentStore<T>>;
+
+        determineAddress(name: string, type: TStoreType, options?: ICreateOptions): Promise<OrbitDBAddress>
 
         static isValidType(type: TStoreType): boolean;
         static addDatabaseType(type: string, store: typeof Store): void;
