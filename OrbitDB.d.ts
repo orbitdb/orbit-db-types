@@ -10,7 +10,7 @@ declare module 'orbit-db' {
     import { Keystore } from "orbit-db-keystore";
     import Cache from "orbit-db-cache";
     import { Identity } from "orbit-db-identity-provider";
-    import * as IPFS from "ipfs";
+    import { IPFS } from "ipfs-core-types";
     import * as elliptic from "elliptic";
     import OrbitDBAddress from 'orbit-db'
     export class OrbitDB {
