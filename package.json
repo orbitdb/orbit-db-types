@@ -22,7 +22,7 @@
   "dependencies": {
     "@types/elliptic": "^6.4.6",
     "@types/events": "^1.2.0",
-    "@types/ipfs": "git+https://github.com/lukas2005/types-ipfs.git",
+    "ipfs-core-types": "^0.4.0",
     "orbit-db": "git+https://github.com/orbitdb/orbit-db.git"
   }
 }
