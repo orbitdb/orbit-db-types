@@ -18,6 +18,7 @@ declare module 'orbit-db' {
         _ipfs: IPFS;
 
         id: string;
+        identity: Identity;
         stores: any;
         directory: string;
         keystore: Keystore;
