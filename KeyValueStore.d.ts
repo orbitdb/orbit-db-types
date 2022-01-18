@@ -8,5 +8,7 @@ declare module "orbit-db-kvstore" {
         set(key: string, value: V, options?: {}): Promise<string>;
         
         del(key: string, options?: {}): Promise<string>;
+
+        all: {[key: string]: V};
     }
 }
