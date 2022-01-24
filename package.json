@@ -1,7 +1,7 @@
 {
   "name": "@types/orbit-db",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Unofficial typings for orbit-db",
   "types": "index.d.ts",
   "repository": {
