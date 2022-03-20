@@ -15,7 +15,7 @@ declare module "orbit-db-store" {
         /** 
          * Contains all entries of this Store
          */
-        all: any[];
+        all: any[] | {};
         type: string;
         /**
          * Returns an instance of `elliptic.ec.KeyPair`.
