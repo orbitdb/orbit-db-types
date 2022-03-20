@@ -7,10 +7,10 @@ declare module 'orbit-db' {
     import EventStore from "orbit-db-eventstore";
     import DocumentStore from "orbit-db-docstore";
     import CounterStore from "orbit-db-counterstore";
-    import { Keystore } from "orbit-db-keystore";
+    import {Keystore} from "orbit-db-keystore";
     import Cache from "orbit-db-cache";
-    import { Identity } from "orbit-db-identity-provider";
-    import * as IPFS from "ipfs";
+    import {Identity} from "orbit-db-identity-provider";
+    import {IPFS} from "ipfs-core-types";
     import * as elliptic from "elliptic";
     import OrbitDBAddress from 'orbit-db'
     export class OrbitDB {
@@ -21,12 +21,12 @@ declare module 'orbit-db' {
         stores: any;
         directory: string;
         keystore: Keystore;
-        
+
         // For OpenTelemetry Plugin
         span?: any;
 
         static databaseTypes: string[];
-        
+
 
         constructor(ipfs: IPFS, directory?: string, options?: {
             peerId?: string,
