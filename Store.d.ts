@@ -1,6 +1,11 @@
+/// <reference path="./LogEntry.d.ts" />
+/// <reference path="./DBOptions.d.ts" />
+/// <reference path="./IReplicationStatus.d.ts" />
+
 declare module "orbit-db-store" {
     import IPFS = require("ipfs");
     import { Identity } from "orbit-db-identity-provider";
+    import AccessController from "orbit-db-access-controllers/src/access-controller-interface";
     import { EventEmitter } from 'events';
     import * as elliptic from "elliptic";
 
@@ -11,6 +16,7 @@ declare module "orbit-db-store" {
          */
         readonly identity: Identity;
 
+        access: { canAppend: (entry: LogEntry<any>) => boolean } | AccessController;
         address: { root: string, path: string };
         /** 
          * Contains all entries of this Store
@@ -23,7 +29,7 @@ declare module "orbit-db-store" {
          * The key can also be accessed from the OrbitDB instance: `orbitdb.key.getPublic('hex')`.
          */
         key: elliptic.ec.KeyPair;
-        replicationStatus: IReplicationStatus;
+        get replicationStatus(): IReplicationStatus;
          
         events: EventEmitter;
 
@@ -47,6 +53,7 @@ declare module "orbit-db-store" {
          * @returns a `Promise` that resolves once complete
          */
         load(amount?: number): Promise<void>;
+        saveToIpfs(head?: LogEntry<any>): Promise<void>;
 
         protected _addOperation(data: any, options: { onProgressCallback?: (entry: any) => any, pin?: boolean }): Promise<string>;
     }
